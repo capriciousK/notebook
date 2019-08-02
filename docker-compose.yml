@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  web:
+    build: ./nginx
+#    links:
+#      - notebook-web-app
+    ports:
+      - "8000:80"
+    volumes:
+      - "./nginx/ngnix.conf:/etc/nginx/conf.d/default.conf"
+
+#  notebook-api-app:
+#    links:
+##      - db
+#    build:
+#      context: ./notebook-api-app
+#    entrypoint: ["/start-server"]
+#
+#  notebook-web-app:
+#    links:
+#      - notebook-api-app
+#    build:
+#      context: ./notebook-web-app
+#    volumes:
+
+#    entrypoint: ["/start-web"]
