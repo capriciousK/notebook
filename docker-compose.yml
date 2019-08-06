@@ -6,17 +6,17 @@ services:
 #    links:
 #      - notebook-web-app
     ports:
-      - "8000:80"
+      - "7875:80"
     volumes:
       - "./nginx/ngnix.conf:/etc/nginx/conf.d/default.conf"
 
-#  notebook-api-app:
+  notebook-api:
 #    links:
-##      - db
-#    build:
-#      context: ./notebook-api-app
-#    entrypoint: ["/start-server"]
-#
+#      - db
+    build:
+      context: ./notebook-api
+
+
 #  notebook-web-app:
 #    links:
 #      - notebook-api-app
