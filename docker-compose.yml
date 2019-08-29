@@ -3,8 +3,8 @@ services:
 
   web:
     build: ./nginx
-#    links:
-#      - notebook-web-app
+    links:
+      - notebook-web
     ports:
       - "7875:80"
     volumes:
@@ -17,11 +17,11 @@ services:
       context: ./notebook-api
 
 
-#  notebook-web-app:
-#    links:
-#      - notebook-api-app
-#    build:
-#      context: ./notebook-web-app
-#    volumes:
-
-#    entrypoint: ["/start-web"]
+  notebook-web:
+    links:
+      - notebook-api
+    build:
+      context: ./notebook-web
+    volumes:
+      - "./notebook-web/src:/app/src"
+      - "./notebook-web/public:/app/public"
